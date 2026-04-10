@@ -312,79 +312,128 @@ ul li a{
     background-color: var(--violet-foncé);
 }
 
-*Debut du style pour la page de projet*/
-.realisation{
-    text-align: center;
-    padding: 50px 50px 50px 50px;
-}
-.parent{
-    display: grid;
-    grid-template-columns: repeat(3, 300px);
-    justify-content: center;
-    gap: 50px;
+/* ===================================================
+   EXTENSIONS POUR LA PAGE PROJETS
+   =================================================== */
 
+/* Ajustement de la section réalisation pour la grille de projets */
+.realisation {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-.article{
+
+/* La grille principale (réutilisation de .parent) */
+.parent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Plus flexible pour le responsive */
+    justify-content: center;
+    gap: 30px;
+    margin-top: 3rem;
+}
+
+/* Style des cartes de projets (réutilisation de .article) */
+.article {
     background: white;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
-.article:hover{
+
+.article:hover {
     transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(108, 99, 255, 0.15); /* Ombre violette discrète au survol */
 }
-.article img{
+
+/* Style des images de projets */
+.article img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
-    border-bottom: 3px solid var(--violet-doux);
-    transition: transform 0.3s ease;
-}  
-.article img:hover{
-    transform: scale(1.05);
+    border-bottom: 4px solid var(--violet-doux);
 }
 
-
-.enfant{
-    padding: 20px;
-    text-align: left;
+/* Conteneur de texte (réutilisation de .enfant) */
+.enfant {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
-.enfant h3{
+
+.enfant h3 {
     color: var(--violet-foncé);
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
 }
-.enfant p{
-    font-size: 0.8rem;
-    color: var(--gris-foncé);
-    font-weight: 300;
+
+.enfant p {
+    color: var(--gris-fonce);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
 }
-.span{
-    margin: 10px 0;
-} 
-.span span{
-    background: var(--gris-clair);
+
+/* Style des badges de technologies */
+.span {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.span span {
+    background-color: var(--gris-tres-clair);
     color: var(--violet-doux);
-    padding: 5px 10px;
-    margin-right: 5px;
-    margin-right: 10px;
-    border-radius: 20px; 
-    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid var(--gris-clair);
 }
-.lien{
+
+/* Style des liens GitHub/Démo */
+.lien {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
-}
-.lien a{
-    text-decoration: none;
-    color: var(--gris-tres-foncé);
-    font-size: 14px;
-}
-.lien{
-    margin-top: 15px;
-    padding-top: 10px;
+    align-items: center;
+    padding-top: 1rem;
     border-top: 1px solid var(--gris-clair);
 }
+
+.lien a {
+    text-decoration: none;
+    color: var(--gris-tres-foncé);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lien a i {
+    color: var(--violet-doux);
+    font-size: 1rem;
+}
+
+.lien a:hover {
+    color: var(--violet-doux);
+}
+
+/* --- Responsive pour les projets --- */
+@media (max-width: 768px) {
+    .parent {
+        grid-template-columns: 1fr; /* Une seule colonne sur petits écrans */
+        padding: 0 1rem;
+    }
+}
+
+
 /* --- Style spécifique pour la page Contact --- */
 /* ===================================================
    DESIGN AMÉLIORÉ DE LA PAGE CONTACT (Style Lorina)
@@ -599,5 +648,172 @@ ul li a{
     
     .contact-visual h2 {
         font-size: 2.2rem;
+    }
+}
+
+/* ===================================================
+   EXTENSIONS POUR LA PAGE DIVERTISSEMENT
+   =================================================== */
+
+/* Animation de flottement pour les cartes de divertissement */
+.article {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+/* Personnalisation des badges de catégories dans les cartes */
+.span span {
+    display: inline-block;
+    background: var(--gris-clair);
+    color: var(--violet-foncé);
+    padding: 6px 14px;
+    margin: 5px 5px 5px 0;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.article:hover .span span {
+    background: var(--violet-doux);
+    color: white;
+}
+
+/* Style pour la section Localisation (Lubumbashi) */
+.location-box {
+    background: white;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(108, 99, 255, 0.08);
+    border-left: 6px solid var(--orange-vif); /* Rappel de la couleur d'accent */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.location-box i {
+    font-size: 2.5rem;
+    color: var(--orange-vif);
+    animation: pulse-orange 2s infinite;
+}
+
+/* Animation discrète pour l'icône de localisation */
+@keyframes pulse-orange {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Style pour les liens interactifs de la page divertissement */
+.lien a {
+    font-weight: 700;
+    color: var(--violet-doux);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s ease;
+}
+
+.lien a:hover {
+    color: var(--violet-foncé);
+    gap: 12px; /* Petit effet de mouvement au survol */
+}
+
+/* Optimisation de la section Langues & Culture */
+.apropos p {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+}
+
+.apropos strong {
+    color: var(--violet-foncé);
+    border-bottom: 2px solid var(--orange-vif);
+}
+
+/* Responsive pour la grille de divertissement */
+@media (max-width: 992px) {
+    .parent {
+        grid-template-columns: repeat(2, 300px);
+    }
+}
+
+@media (max-width: 650px) {
+    .parent {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* ===================================================
+   EXTENSIONS POUR LA PAGE PASSION
+   =================================================== */
+
+/* Animation de flottement pour les cartes de passions */
+.passion-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+/* Personnalisation des badges de catégories dans les cartes */
+.span span {
+    display: inline-block;
+    background: var(--gris-clair);
+    color: var(--violet-foncé);
+    padding: 6px 14px;
+    margin: 5px 5px 5px 0;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.article:hover .span span {
+    background: var(--violet-doux);
+    color: white;
+}
+
+/* Effets de survol spécifiques pour l'iconographie des passions */
+.article img {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.article:hover img {
+    transform: scale(1.05);
+}
+
+/* Style spécifique pour la page de projets et passion */
+.realisation {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    justify-content: center;
+    gap: 50px;
+}
+
+@media (max-width: 992px) {
+    .parent {
+        grid-template-columns: repeat(2, 300px);
+    }
+}
+
+@media (max-width: 650px) {
+    .parent {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
     }
 }
